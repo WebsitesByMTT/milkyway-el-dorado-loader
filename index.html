@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Dorado Spin</title>
+  <link rel="icon" href="logo.png" type="image/x-icon" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      background: #04101c;
+    }
+
+    .loading {
+      width: 100%;
+      height: 100%;
+      background-image: url("./bg.png");
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .loading .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .title {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title .stars {
+      position: absolute;
+      opacity: 0.5;
+    }
+
+    .loader {
+      display: block;
+      --height-of-loader: 8px;
+      --loader-color: #faf729;
+      width: 100%;
+      height: var(--height-of-loader);
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .loader::before {
+      content: "";
+      position: absolute;
+      background: var(--loader-color);
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      border-radius: 30px;
+      animation: moving 1s ease-in-out infinite;
+    }
+
+    @keyframes moving {
+      50% {
+        width: 100%;
+      }
+
+      100% {
+        width: 0;
+        right: 0;
+        left: unset;
+      }
+    }
+
+    @keyframes spin89345 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        transform: scale(.8);
+
+      }
+
+      .title .stars {
+      transform: scale(.8);
+    }
+
+      .title {
+        transform: scale(.8);
+      }
+
+      .title .text {
+        transform: scale(.8);
+        transform: translateY(-40px);
+      }
+
+      .loading .container {
+        width: 70%;
+      }
+
+      .loader {
+        width: 70%;
+        transform: translateY(-40px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loading">
+    <div class="container">
+      <div class="logo">
+        <img src="./logo.png" alt="El Dorado Spin" />
+      </div>
+      <div class="title">
+        <img src="./star-animation.gif" alt="" class="stars" />
+        <img src="./title.svg" alt="El Dorado Spin" class="text" />
+      </div>
+      <div class="loader"></div>
+    </div>
+  </div>
+</body>
+
+</html>
